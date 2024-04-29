@@ -1,0 +1,14 @@
+.photoItem {    
+    height: 220px;
+    overflow: hidden;
+}
+
+.photo {
+    object-fit: cover;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.photo:hover {
+    transform: scale(1.03);
+    cursor: zoom-in;
+}

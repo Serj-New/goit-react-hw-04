@@ -1,0 +1,11 @@
+.photoList {
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+}
+
+.photoListItem {
+    max-width: calc(20% - 10px);
+}

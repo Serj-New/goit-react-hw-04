@@ -1,0 +1,35 @@
+.searchBar {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: blue;
+}
+
+.searchForm {
+    display: flex;
+    gap: 20px;
+}
+
+.searchInput {
+    height: 36px;
+    width: 300px;
+    padding-left: 10px;
+    padding-right: 40px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    color: black;
+    font-size: 20px;
+    background-color: azure;
+}
+
+.searchInputGroup {
+    position: relative;
+}
+
+.searchIcon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
