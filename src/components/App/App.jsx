@@ -5,6 +5,7 @@ import ImageGallery from '../ImageGallery/ImageGallery';
 import Loader from '../Loader/Loader';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
+import ImageModal from '../ImageModal/ImageModal';
 
 
 import css from './App.module.css';
@@ -14,6 +15,7 @@ export default function App() {
   const [photos, setPhotos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
@@ -49,15 +51,7 @@ export default function App() {
     }
   
     getPhotos();
-  }, [page, query]);
-
-  useEffect(() => {
-    // Після оновлення списку зображень прокрутити сторінку вниз
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      behavior: "smooth"
-    });
-  }, [photos]);
+  }, [page, query ]);
 
   const openModal = (imageUrl) => {
     setSelectedImage(imageUrl);
@@ -74,7 +68,7 @@ export default function App() {
       {photos.length > 0 && (<ImageGallery items={photos} onImageClick={openModal} />)}
       {isLoading && <Loader />}
       {photos.length > 9 && !isLoading && <LoadMoreBtn onClick={handleLoadMore} />}
-      {/* {selectedImage && (<ImageModal imageUrl={selectedImage} closeModal={closeModal} />)} */}
+      {selectedImage && (<ImageModal imageUrl={selectedImage} closeModal={closeModal} />)}
     </div>
   );
 }
